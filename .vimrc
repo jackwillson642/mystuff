@@ -1,7 +1,21 @@
-set encoding=utf-8
+"+--------------------------------+
+"|           _                    |
+"|   __   __(_)___ ___ ___  ____  |
+"|   | | / / / __ `__ \  _|/ __|  |
+"|   | |/ / / / / / / / / | |__   |
+"|   |___/_/_/ /_/ /_/ /   \___|  |
+"|                                |
+"|                                |
+"+--------------------------------+
 
+
+let mapleader=","
+
+" Set line numbers upon opening vimrc
 set number
 set relativenumber
+nnoremap <F1> :set number!<cr>:set relativenumber!<cr>
+inoremap <F1> <ESC>:set number!<cr>:set relativenumber!<cr>i
 
 set tabstop=4
 set softtabstop=4
@@ -9,58 +23,88 @@ set shiftwidth=4
 set textwidth=79
 set expandtab
 set autoindent
-set fileformat=unix
 
-execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " NERDTree
-map <F3> :NERDTreeToggle<cr><F1>
-let NERDTreeWinSize=30
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+nnoremap <F3> :NERDTreeToggle<cr>
+inoremap <F3> :NERDTreeToggle<cr>
+let NERDTreeWinSize=40
 let NERDTreeWinPos="left"
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeAutoDeleteBuffer=1
 
+" Colors
+colorscheme inkpot
+let g:molokai_original = 1
+
 
 " Mappings
+set nocompatible
 
-" handy changes
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
-nmap <c-o> :tabn<cr>
-nmap <c-y> :tabN<cr>
 
-imap {<cr> {<cr><cr>}<ESC>ki    
-imap <leader>" ""<c-o>h
+" edit vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 
-nmap <F1> :set number<cr>:set relativenumber<cr>
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+"
+" edit i3-config file
+nnoremap <leader>ec :tabnew ~/.config/i3/config<cr>
 
-" save and quit
-nmap <DEL> :q!<cr>
-nmap <F12> :w<cr>
-imap <F12> <ESC>:w<cr>i
-vmap <F12> <ESC>:w<cr>v
+
+" movement
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <c-o> :tabn<cr>
+nnoremap <c-i> :tabN<cr>
+nnoremap J 10j
+nnoremap K 10k
+
+" autocenter
+nnoremap G Gzz
+nnoremap n nzz
+nnoremap N Nzz
+
+" autoclose tags
+inoremap <leader>" ""<ESC>i
+inoremap <leader>( ()<ESC>i
+inoremap <leader>{ {}<ESC>i
+inoremap <leader>[ []<ESC>i
+
+" quit
+nnoremap <DEL> :q<cr>
 
 " insert blank line below and above
-nmap go o<ESC>k
-nmap gO O<ESC>j
+nnoremap go o<ESC>k
+nnoremap gO O<ESC>j
 
 " move line up and down
-nmap <F8> ddp
-nmap <F6> dd2kp
+nnoremap <F11> ddp
+nnoremap <F9> dd2kp
 
 " undo and redo
-nmap u u
-nmap U <c-r>
+nnoremap u u
+nnoremap U <c-r>
+
+" Commenting
+autocmd Filetype python nnoremap ` i#<ESC>j
 
 " Enable folding(collapsing)
 set foldmethod=indent
 set foldlevel=99
+nnoremap ~ za
 
 " Abbreviations
-iabbr eml chinmay300103@gmail.com
+iabbr #@ chinmay300103@gmail.com
+iabbr @@ jackwillson642@gmail.com
 iabbr cim vim
-imap <leader>cm cout<<""<<endl;
+iabbr ture true
+iabbr flase false
 

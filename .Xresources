@@ -1,0 +1,71 @@
+URxvt.font: xft:monospace:size=11
+URxvt.scrollBar : false
+
+URxvt.blurRadius:      1
+URxvt.shading:         25
+URxvt.transparent:     true
+
+!! All red
+!
+!.background: #000000
+!.foreground: #DC0000
+!.color0:     #0F0000
+!.color1:     #DC0000
+!.color2:     #DC0000
+!.color3:     #DC0000
+!.color4:     #0C0000
+!.color5:     #DC0000
+!.color6:     #DC0000
+!.color8:     #DC0000
+!.color9:     #DC0000
+!.color7:     #DC0000
+!.color10:    #DC0000
+!.color11:    #DC0000
+!.color12:    #DC0000
+!.color13:    #9C0000
+!.color14:    #9C0000
+!.color15:    #9C0000
+!.color16:    #0C0000
+
+!! Molokai
+!
+*.foreground:  #DC0000
+*.background:  #121212
+*.cursorColor: #bbbbbb
+!
+! Black
+*.color0:      #121212
+*.color8:      #555555
+!
+! Red
+*.color1:      #fa2573
+*.color4:      #DC3333
+*.color9:      #f6669d
+!
+! Green
+*.color2:      #98e123
+*.color10:     #b1e05f
+!
+! Yellow
+*.color3:      #dfd460
+*.color11:     #fff26d
+!
+! Blue
+*.color12:     #00afff
+!
+! Magenta
+*.color5:      #8700ff
+*.color13:     #af87ff
+!
+! Cyan
+*.color6:      #43a8d0
+*.color14:     #51ceff
+!
+! White
+*.color7:      #bbbbbb
+*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:

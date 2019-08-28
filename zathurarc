@@ -1,0 +1,83 @@
+set zoom-step 5
+set scroll-step 30
+
+map . zoom in
+map , zoom out
+
+map > 10PageDown
+
+
+#map c recolor
+#set recolor-keephue true
+#
+#set incremental-search true
+#
+#set default-fg                  "#3a3432"
+#set default-bg                  "#000000"
+#
+#set statusbar-fg                "#807d7c"
+#set statusbar-bg                "#4a4543"
+#
+#set inputbar-bg                 "#090300"
+#set inputbar-fg                 "#f7f7f7"
+#
+#set notification-bg             "#090300"
+#set notification-fg             "#f7f7f7"
+#
+#set notification-error-bg       "#090300"
+#set notification-error-fg       "#db2d20"
+#
+#set notification-warning-bg     "#090300"
+#set notification-warning-fg     "#db2d20"
+#
+#set highlight-color             "#fded02"
+#set highlight-active-color      "#01a0e4"
+#
+#set completion-bg               "#3a3432"
+#set completion-fg               "#01a0e4"
+#
+#set completion-highlight-fg     "#f7f7f7"
+#set completion-highlight-bg     "#01a0e4"
+
+# zathurarc-dark
+set notification-error-bg       "#586e75" # base01  # seem not work
+set notification-error-fg       "#dc322f" # red
+set notification-warning-bg     "#586e75" # base01
+set notification-warning-fg     "#dc322f" # red
+set notification-bg             "#586e75" # base01
+set notification-fg             "#b58900" # yellow
+
+set completion-group-bg         "#002b36" # base03
+set completion-group-fg         "#839496" # base0
+set completion-bg               "#101010" # base02
+set completion-fg               "#ff0000" # base1
+set completion-highlight-bg     "#586e75" # base01
+set completion-highlight-fg     "#eee8d5" # base2
+
+# Define the color in index mode
+set index-bg                    "#000000" # base02
+set index-fg                    "#ff0000" # base1
+set index-active-bg             "#586e75" # base01
+set index-active-fg             "#eee8d5" # base2
+
+set inputbar-bg                 "#586e75" # base01
+set inputbar-fg                 "#eee8d5" # base2
+
+set statusbar-bg                "#000000" # base02
+set statusbar-fg                "#ff0000" # base1
+
+set highlight-color             "#505050" # base00  # hightlight match when search keyword(vim's /)
+set highlight-active-color      "#507070" # blue
+
+set default-bg                  "#000000" # base02
+set default-fg                  "#00FF00" # base1
+# set render-loading              true
+# set render-loading-fg           "#073642" # base02
+# set render-loading-bg           "#073642" # base02
+
+# Recolor book content's color
+map c recolor
+set recolor                     true
+set recolor-lightcolor          "#000000" # base02
+set recolor-darkcolor           "#ff0000" # base1
+# set recolor-keephue             true      # keep original color
