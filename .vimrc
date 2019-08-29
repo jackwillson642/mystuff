@@ -9,8 +9,6 @@
 "+--------------------------------+
 
 
-let mapleader=","
-
 " Line numbers and relative line number
 set number
 set relativenumber
@@ -40,22 +38,13 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeAutoDeleteBuffer=1
 
 " Colors
-colorscheme inkpot
+colorscheme desert
 
 " Mappings
 set nocompatible
 
 source ~/.vim/mappings.vim
 source ~/.vim/abbreviations.vim
-
-" edit vimrc
-nnoremap <leader>ev :tabnew $MYVIMRC<cr>
-
-" source vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" edit i3-config file
-nnoremap <leader>ec :tabnew ~/.config/i3/config<cr>
 
 " Enable folding(collapsing)
 set foldmethod=indent
