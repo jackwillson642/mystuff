@@ -1,5 +1,11 @@
 " Mappings
 
+let mapleader = ','
+
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>em :tabnew ~/.vim/mappings.vim<cr>
+
 " autocenter
 nnoremap G Gzz
 nnoremap n nzz

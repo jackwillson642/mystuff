@@ -38,7 +38,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeAutoDeleteBuffer=1
 
 " Colors
-colorscheme desert
+colorscheme molokai
 
 " Mappings
 set nocompatible

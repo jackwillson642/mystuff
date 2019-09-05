@@ -27,8 +27,9 @@ font pango:monospace 8
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-default_border none
-default_floating_border none
+#default_border none
+#default_floating_border none
+new_window none
 
 # start a terminal
 bindsym $mod+Return exec rxvt-unicode
@@ -39,7 +40,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # start rofi(a program launcher)
-bindsym $mod+d exec rofi -show drun -theme sidebar
+bindsym $mod+d exec rofi -show run -theme android_notification
 # There also is the (new) i3-dmenu-desktop which only displays applications # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -100,7 +101,7 @@ set $workspace1 " "
 set $workspace2 " "
 set $workspace3 " "
 set $workspace4 " "
-set $workspace5 " "
+set $workspace5 " "
 set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
@@ -132,9 +133,10 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace3
+assign [class="Zathura"] $workspace4
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -214,8 +216,8 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+shift+x exec i3lock-fancy
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
@@ -231,7 +233,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-scale /home/jack/pictures/aurora-blue.jpg
+exec_always feh --bg-scale /home/jack/pictures/crimson_space.jpg
 exec_always compton
 exec_always ~/.screenlayout/left-right.sh
 exec_always xrdb ~/.Xresources
