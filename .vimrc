@@ -3,7 +3,7 @@
 "|   __   __(_)___ ___ ___  ____  |
 "|   | | / / / __ `__ \  _|/ __|  |
 "|   | |/ / / / / / / / / | |__   |
-"|   |___/_/_/ /_/ /_/ /   \___|  |
+"|   |___/_/_/ /_/ /_/_/   \___|  |
 "|                                |
 "|                                |
 "+--------------------------------+
@@ -15,7 +15,7 @@ set relativenumber
 nnoremap <F1> :set number!<cr>:set relativenumber!<cr>
 inoremap <F1> <ESC>:set number!<cr>:set relativenumber!<cr>i
 
-
+" tabs
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -38,7 +38,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeAutoDeleteBuffer=1
 
 " Colors
-colorscheme molokai
+colorscheme leo
 
 " Mappings
 set nocompatible

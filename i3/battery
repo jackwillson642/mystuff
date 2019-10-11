@@ -77,19 +77,19 @@ else:
             # exit code 33 will turn background red
             return "#FFFFFF"
         if percent < 20:
-            return "#FF3300"
+            return "#FFFFFF"
         if percent < 30:
-            return "#FF6600"
+            return "#FFFFFF"
         if percent < 40:
-            return "#FF9900"
+            return "#FFFFFF"
         if percent < 50:
-            return "#FFCC00"
+            return "#FFFFFF"
         if percent < 60:
-            return "#FFFF00"
+            return "#FFFFFF"
         if percent < 70:
-            return "#FFFF33"
+            return "#FFFFFF"
         if percent < 80:
-            return "#FFFF66"
+            return "#FFFFFF"
         return "#FFFFFF"
 
     form =  '<span color="{}">{}%</span>'
