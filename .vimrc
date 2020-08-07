@@ -8,6 +8,16 @@
 "|                                |
 "+--------------------------------+
 
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Initialize plugin system
+call plug#end()
+
 
 " Line numbers and relative line number
 set number
@@ -38,7 +48,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeAutoDeleteBuffer=1
 
 " Colors
-colorscheme leo
+colorscheme default
 
 " Mappings
 set nocompatible

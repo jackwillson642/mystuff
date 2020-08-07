@@ -124,17 +124,19 @@ fi
 
 
 alias s='sudo'
-alias i='sudo apt install'
-alias sa='sudo apt'
+alias i='sudo yum install'
+alias a='sudo yum'
 alias v='vim'
 alias sv='sudo vim'
 alias r='ranger'
 alias sr='sudo ranger'
 alias b='bluetoothctl'
-alias m='sudo mount'
 alias gtop='LANG=en.utf8 gtop'
-alias c='tty-clock -csC 4'
+alias c='tty-clock -csC 1'
 alias kc='killall compton'
 alias sk='sudo kill'
-alias sb='source ~/.bashrc'
+alias ka='killall'
+alias sb='sudo bash'
+alias pg='ping google.com'
 
+set -o vi

@@ -1,17 +1,16 @@
-#+-------------------------------------+
-#| _ _____                  __ _       |
-#|(_)___ /  ___ ___  _ __  / _(_) __ _ |
-#|| | |_ \ / __/ _ \| '_ \| |_| |/ _` ||
-#|| |___) | (_| (_) | | | |  _| | (_| ||
-#||_|____/ \___\___/|_| |_|_| |_|\__, ||
-#|                               |___/ |
-#|                                     |
-#+-------------------------------------+
+#+---------------------------------------+
+#|  _ _____                  __ _        |
+#| (_)___ /  ___ ___  _ __  / _(_) __ _  |
+#| | | |_ \ / __/ _ \| '_ \| |_| |/ _` | |
+#| | |___) | (_| (_) | | | |  _| | (_| | |
+#| |_|____/ \___\___/|_| |_|_| |_|\__, | |
+#|                                |___/  |
+#|                                       |
+#+---------------------------------------+
 
 set $mod mod4
 font pango:monospace 8
 
-# use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 #default_border none
@@ -19,23 +18,35 @@ floating_modifier $mod
 new_window pixel 3
 
 # start a terminal
-bindsym $mod+Return exec rxvt-unicode
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec gnome-terminal
-for_window [class="URxvt"] floating enable
-for_window [class="urxvt"] border pixel 4
+for_window [class="URxvt"] border pixel 1
+for_window [class="URxvt"] floating enable, resize set 800px 500px
+for_window [class="URxvt"] move position 300 80
 
-bindsym $mod+shift+f exec rxvt-unicode -e 'ranger'
-bindsym $mod+shift+m exec rxvt-unicode -e 'cmus'
+# zathura
+# for_window [class="Zathura"] border pixel 1
+# for_window [class="Zathura"] floating enable, resize set 1000px 1000px
+# for_window [class="Zathura"] move position 300 40
 
-# start duckduckgo in surf
-bindsym $mod+shift+d exec surf duckduckgo.com
+# spotify
+# for_window [class="Spotify"] floating enable, resize set 1300px 900px
+# for_window [class="Spotify"] move position 80 30
+
+# for_window [class="Firefox"] floating enable, resize set 1500px 1000px
+# for_window [class="Firefox"] move position 80 30
+
+bindsym $mod+shift+f exec urxvt -e 'ranger'
+bindsym $mod+shift+m exec urxvt -e 'cmus'
 
 # kill focused window
-bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
+# downloads sort
+bindsym $mod+shift+s exec python3 ~/desktop/python/sortfiles.py
+
 # start rofi(a program launcher)
-bindsym $mod+d exec rofi -show run -theme Monokai
+bindsym $mod+d exec rofi -show run -theme sidebar
 # There also is the (new) i3-dmenu-desktop which only displays applications # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -53,10 +64,10 @@ bindsym $mod+l focus right
 #bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left 50px
+bindsym $mod+Shift+j move down 50px
+bindsym $mod+Shift+k move up 50px
+bindsym $mod+Shift+l move right 50px
 
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
@@ -82,11 +93,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-#
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -97,11 +105,23 @@ set $ws2 " "
 set $ws3 " "
 set $ws4 " "
 set $ws5 " "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws0 "0 "
+set $ws6 "1"
+set $ws7 "2"
+set $ws8 "3"
+set $ws9 "4"
+set $ws0 "5"
+set $wsj "0"
+
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws0 "0"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -109,11 +129,12 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws0
+bindsym $modx+1 workspace $ws6
+bindsym $modx+2 workspace $ws7
+bindsym $modx+3 workspace $ws8
+bindsym $modx+4 workspace $ws9
+bindsym $modx+5 workspace $ws0
+bindsym $mod+0 workspace $wsj
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -121,18 +142,25 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws0
+bindsym $modx+Shift+1 move container to workspace $ws6
+bindsym $modx+Shift+2 move container to workspace $ws7
+bindsym $modx+Shift+3 move container to workspace $ws8
+bindsym $modx+Shift+4 move container to workspace $ws9
+bindsym $modx+Shift+5 move container to workspace $ws0
+bindsym $mod+Shift+0 move container to workspace $wsj
 
-assign [class="Firefox"] $ws3
-assign [class="todoist"] $ws3
-assign [class="Zathura"] $ws4
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# assign [class="Firefox"] $ws3
+# assign [class="Spotify"] $ws5
+# assign [class="Zathura"] $ws4
 
 # reload the configuration file
-#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -169,24 +197,9 @@ bindsym $modx+x workspace $wsx
 bindsym $modx+Shift+x move container to workspace $wsx
 
 
-set $ws11 "1.1"
-set $ws12 "1.2"
-set $ws13 "1.3"
-set $ws14 "1.4"
-set $ws15 "1.5"
 
 
-bindsym $modx+1 workspace $ws11
-bindsym $modx+2 workspace $ws12
-bindsym $modx+3 workspace $ws13
-bindsym $modx+4 workspace $ws14
-bindsym $modx+5 workspace $ws15
 
-bindsym $modx+Shift+1 move container to workspace $ws11
-bindsym $modx+Shift+2 move container to workspace $ws12
-bindsym $modx+Shift+3 move container to workspace $ws13
-bindsym $modx+Shift+4 move container to workspace $ws14
-bindsym $modx+Shift+5 move container to workspace $ws15
 
 bindsym $mod+r mode "resize"
 
@@ -205,6 +218,9 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color
 
+#esc caps swap
+bindsym $mod+shift+a exec setxkbmap -option caps:swapescape
+
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -212,8 +228,9 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
     mode hide
     hidden_state hide
-    modifier Mod4
+    modifier $mod
     font pango:DejaVu Sans Mono 15
+    separator_symbol "|"
 
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	colors {
@@ -230,13 +247,18 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Lock computer
-bindsym $mod+shift+x exec i3lock-fancy
-bindsym $mod+shift+z exec systemctl suspend
+bindsym $mod+shift+z exec i3lock -ef -i ~/pictures/wallpapers/png/2leopards.png
+bindsym $mod+shift+x exec i3lock -ef -i ~/pictures/wallpapers/png/2leopards.png && systemctl suspend
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Convenient audio controls
+# bindsym F3 exec --no-startup-id amixer -D pulse sset Master 5%+
+# bindsym F2 exec --no-startup-id amixer -D pulse sset Master 5%-
+# bindsym F4 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -251,9 +273,10 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-scale /home/jack/pictures/wallpapers/miami.jpg
+exec_always feh --bg-scale /home/jack/pictures/wallpapers/intel.jpg
 exec_always compton
-exec_always ~/.screenlayout/left-right.sh
+# exec_always blueman-applet
 exec_always xrdb ~/.Xresources
-exec_always spicetify update
-
+# exec_always xinput set-prop 12 280 1
+exec_always setxkbmap -option caps:swapescape
+# exec_always ./.screenlayout/monitor_only.sh
