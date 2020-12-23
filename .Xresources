@@ -1,145 +1,96 @@
-URxvt.font: xft:monospace:size=11
+XTerm.termName: xterm-256color
+XTerm.vt100.faceName: Inconsolata:size=11:antialias=true
+
+
+URxvt.font: xft:Inconsolata:size=11
 URxvt.scrollBar : false
 URxvt.cursorBlink : true
 
-URxvt.keysym.C-Up:     font-size:increase
-URxvt.keysym.C-Down:   font-size:decrease
-URxvt.keysym.C-equal:  font-size:reset
-URxvt.keysym.C-slash:  font-size:show
-
-/* *.foreground: #a1a1a1 */
-/* *.background: #19191B */
-/* *.cursorColor: #afbfbf */
-/*  */
-/*  */
-URxvt.blurRadius:      8
-URxvt.shading:         20
-URxvt.transparent:     true
-
-/* !! All red */
-/* ! */
-/* !.background: #000000 */
-/* !.foreground: #DC0000 */
-/* !.color0:     #0F0000 */
-/* !.color1:     #DC0000 */
-/* !.color2:     #DC0000 */
-/* !.color3:     #DC0000 */
-/* !.color4:     #0C0000 */
-/* !.color5:     #DC0000 */
-/* !.color6:     #DC0000 */
-/* !.color8:     #DC0000 */
-/* !.color9:     #DC0000 */
-/* !.color7:     #DC0000 */
-/* !.color10:    #DC0000 */
-/* !.color11:    #DC0000 */
-/* !.color12:    #DC0000 */
-/* !.color13:    #9C0000 */
-/* !.color14:    #9C0000 */
-/* !.color15:    #9C0000 */
-/* !.color16:    #0C0000 */
-
-!! Molokai
-!
-/* *.foreground:  #FFFFFF */
-/* *.background:  #111111 */
-/* *.cursorColor: #dddddd */
-!
-/* ! Black */
-/* *.color0:      #121212 */
-/* *.color8:      #555555 */
-/* ! */
-/* ! Red */
-/* *.color1:      #fa2573 */
-/* *.color4:      #DC3333 */
-/* *.color9:      #f6669d */
-/* ! */
-/* ! Green */
-/* *.color2:      #98e123 */
-/* *.color10:     #b1e05f */
-/* ! */
-/* ! Yellow */
-/* *.color3:      #dfd460 */
-/* *.color11:     #fff26d */
-/* ! */
-/* ! Blue */
-/* *.color12:     #00afff */
-/* ! */
-/* ! Magenta */
-/* *.color5:      #8700ff */
-/* *.color13:     #af87ff */
-/* ! */
-/* ! Cyan */
-/* *.color6:      #43a8d0 */
-/* *.color14:     #51ceff */
-/* ! */
-/* ! White */
-/* *.color7:      #bbbbbb */
-/* *.color15:     #ffffff */
-/* ! */
-/* ! Bold, Italic, Underline */
-/* *.colorBD:     #ffffff */
-/* !*.colorIT: */
-/* !*.colorUL: */
-
-
-/* *.foreground:  #fff59d */
-/* *.cursorColor: #fff59d */
-/*  */
-/*  */
-/* ! Grey bg (dark to light) */
-/* ! no place but used by tmux and awesome #241c22 */
-/* *background:   #2a2228 */
-/* *color10:       #F4F37E */
-/*  */
-/* ! Primary bg (dark to light) */
-/* *color6:       #a04547 */
-/* *color2:       #b24b50 */
-/* *color14:      #c05057 */
-/*  */
-/* ! Secondary bg (dark to light) */
-/* *color5:       #b54d3a */
-/* *color4:       #c3523f */
-/* *color13:      #e46548 */
-/*  */
-/* ! Error bg (dark to light) */
-/* *color1:       #ca5f31 */
-/* *color9:       #d77335 */
-/* *color3:       #df8038 */
-/*  */
-/* ! Text ! */
-/*  */
-/* ! Text Grey */
-/* *color8:       #ffcc80 */
-/* *foreground:   #ffe0b2 */
-/*  */
-/* ! Text Primary (normal - focus) */
-/* *color0:      #fff59d */
-/* *color7:       #fff9c4 */
-/*  */
-/* ! Text Secondary (normal - focus) */
-/* *color12:      #E4A05A */
-/* *color15:      #E4A05A */
-/*  */
-/* ! Text Error */
-/* *color11:      #212121 */
+/* URxvt.blurRadius:      8 */
+/* URxvt.shading:         30 */
+/* URxvt.transparent:     true */
 
 ! Dracula Xresources palette
-*.foreground: #F8F8F2
-/* *.background: #242632 */
-*.background: #000000
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+URxvt.foreground: #ffffff
+URxvt.background: #101010
+URxvt.color0:     #000000
+URxvt.color8:     #4D4D4D
+URxvt.color1:     #FF5555
+URxvt.color9:     #FF6E67
+URxvt.color2:     #50FA7B
+URxvt.color10:    #5AF78E
+URxvt.color3:     #F1FA8C
+URxvt.color11:    #F4F99D
+URxvt.color4:     #BD93F9
+URxvt.color12:    #CAA9FA
+URxvt.color5:     #FF79C6
+URxvt.color13:    #FF92D0
+URxvt.color6:     #8BE9FD
+URxvt.color14:    #9AEDFE
+URxvt.color7:     #BFBFBF
+URxvt.color15:    #E6E6E6
+
+/* XTerm.vt100.foreground: #ffffff */
+/* XTerm.vt100.background: #101316 */
+/* XTerm.vt100.color0:     #000000 */
+/* XTerm.vt100.color8:     #4D4D4D */
+/* XTerm.vt100.color1:     #FF5555 */
+/* XTerm.vt100.color9:     #FF6E67 */
+/* XTerm.vt100.color2:     #50FA7B */
+/* XTerm.vt100.color10:    #5AF78E */
+/* XTerm.vt100.color3:     #F1FA8C */
+/* XTerm.vt100.color11:    #F4F99D */
+/* XTerm.vt100.color4:     #BD93F9 */
+/* XTerm.vt100.color12:    #CAA9FA */
+/* XTerm.vt100.color5:     #FF79C6 */
+/* XTerm.vt100.color13:    #FF92D0 */
+/* XTerm.vt100.color6:     #8BE9FD */
+/* XTerm.vt100.color14:    #9AEDFE */
+/* XTerm.vt100.color7:     #BFBFBF */
+/* XTerm.vt100.color15:    #E6E6E6 */
+
+
+! light blue: #017c9d
+! aqua: #019d76
+! grey: 3b4651
+
+
+!! Colorscheme
+
+! special
+XTerm.vt100.foreground: #93a1a1
+XTerm.vt100.background: #101316
+XTerm.vt100.cursorColor: #afbfbf
+
+! black
+XTerm.vt100.color0: #263640
+XTerm.vt100.color8: #4a697d
+
+! red
+XTerm.vt100.color1: #d12f2c
+XTerm.vt100.color9: #fa3935
+
+! green
+XTerm.vt100.color2: #819400
+XTerm.vt100.color10: #a4bd00
+
+! yellow
+XTerm.vt100.color3: #b08500
+XTerm.vt100.color11: #d9a400
+
+! blue
+XTerm.vt100.color4: #2587cc
+XTerm.vt100.color12: #2ca2f5
+
+! magenta
+XTerm.vt100.color5: #696ebf
+XTerm.vt100.color13: #8086e8
+
+! cyan
+XTerm.vt100.color6: #289c93
+XTerm.vt100.color14: #33c5ba
+
+! white
+XTerm.vt100.color7: #fdf6e3
+XTerm.vt100.color15: #fdf6e3
+

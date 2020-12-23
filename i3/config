@@ -15,38 +15,54 @@ floating_modifier $mod
 
 #default_border none
 #default_floating_border none
-new_window pixel 3
+new_window pixel 1
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec gnome-terminal
-for_window [class="URxvt"] border pixel 1
-for_window [class="URxvt"] floating enable, resize set 800px 500px
-for_window [class="URxvt"] move position 300 80
+bindsym $mod+Return exec xterm
+bindsym $mod+Shift+Return exec urxvt
+for_window [class="URxvt"] border pixel 0
+for_window [class="URxvt"] floating enable
+# for_window [class="URxvt"] move position 300 80
+# for_window [class="URxvt"] floating enable, resize set 1100px 700px
+
+for_window [class="XTerm"] border pixel 0
+for_window [class="XTerm"] floating enable
+for_window [class="XTerm"] move position 300 80
+# for_window [class="XTerm"] floating enable, resize set 1100px 700px
 
 # zathura
 # for_window [class="Zathura"] border pixel 1
-# for_window [class="Zathura"] floating enable, resize set 1000px 1000px
+# for_window [class="Zathura"] floating enable, resize set 850px 1000px
 # for_window [class="Zathura"] move position 300 40
+for_window [class="mpv"] floating enable
 
 # spotify
-# for_window [class="Spotify"] floating enable, resize set 1300px 900px
+# for_window [class="Spotify"] floating enable, resize set 1500px 800px
 # for_window [class="Spotify"] move position 80 30
 
-# for_window [class="Firefox"] floating enable, resize set 1500px 1000px
-# for_window [class="Firefox"] move position 80 30
+for_window [class="mpv"] border pixel 0
 
-bindsym $mod+shift+f exec urxvt -e 'ranger'
-bindsym $mod+shift+m exec urxvt -e 'cmus'
+
+# floating
+for_window [class="qutebrowser"] floating enable
+for_window [class="qBittorrent"] floating enable
+# for_window [class="Wine"] floating enable
+for_window [class="discord"] floating enable, resize set 1300 800
+
+bindsym $mod+shift+p exec urxvt -e 'ranger'
+bindsym $mod+shift+i exec qutebrowser
+
+# opens up a search menu for man pages and opens pdf files of them:
+bindsym $mod+m exec ~/scripts/macho-gui.sh
+
+# screenshot
+bindsym $mod+Mod1+s exec ~/scripts/screenshot.sh
 
 # kill focused window
 bindsym $mod+q kill
 
-# downloads sort
-bindsym $mod+shift+s exec python3 ~/desktop/python/sortfiles.py
-
 # start rofi(a program launcher)
-bindsym $mod+d exec rofi -show run -theme sidebar
+bindsym $mod+d exec rofi -show drun 
 # There also is the (new) i3-dmenu-desktop which only displays applications # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -100,54 +116,25 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+d focus child
 
 
-set $ws1 " "
-set $ws2 " "
-set $ws3 " "
-set $ws4 " "
-set $ws5 " "
-set $ws6 "1"
-set $ws7 "2"
-set $ws8 "3"
-set $ws9 "4"
-set $ws0 "5"
-set $wsj "0"
-
-# set $ws1 "1"
-# set $ws2 "2"
-# set $ws3 "3"
-# set $ws4 "4"
-# set $ws5 "5"
-# set $ws6 "6"
-# set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws0 "0"
+set $ws1 "University "
+set $ws2 "Code "
+set $ws3 "Hobbies "
+set $ws4 "Miscellaneous "
+set $ws5 "Music "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $modx+1 workspace $ws6
-bindsym $modx+2 workspace $ws7
-bindsym $modx+3 workspace $ws8
-bindsym $modx+4 workspace $ws9
-bindsym $modx+5 workspace $ws0
-bindsym $mod+0 workspace $wsj
+bindsym $mod+0 workspace $ws5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $modx+Shift+1 move container to workspace $ws6
-bindsym $modx+Shift+2 move container to workspace $ws7
-bindsym $modx+Shift+3 move container to workspace $ws8
-bindsym $modx+Shift+4 move container to workspace $ws9
-bindsym $modx+Shift+5 move container to workspace $ws0
-bindsym $mod+Shift+0 move container to workspace $wsj
+bindsym $mod+Shift+0 move container to workspace $ws5
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -155,18 +142,12 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# assign [class="Firefox"] $ws3
-# assign [class="Spotify"] $ws5
-# assign [class="Zathura"] $ws4
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# Resize
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -189,6 +170,13 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+bindsym $mod+r mode "resize"
+
+
+mode "box" {
+
+}
+
 
 set $modx Mod1
 #The 'x' workspace
@@ -196,24 +184,23 @@ set $wsx " "
 bindsym $modx+x workspace $wsx
 bindsym $modx+Shift+x move container to workspace $wsx
 
+bindsym $mod+Shift+q exec ~/scripts/kill.sh
 
-
-
-
-
-bindsym $mod+r mode "resize"
-
-set $bg-color             #212121
+###
+# COLORS
+###
+set $bg-color             #1a1a1a
 set $text-color           #ffffff
 set $inactive-text-color  #545454
-set $inactive-bg-color    #212121
-set $urgent-bg-color      #111111
+set $inactive-bg-color    #101010
 set $indicator-color      #000000
 set $border-color         #93a1a1
+set $bar-bg-color         #101010
+set $wborder-color        #ffffff
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $indicator-color
+client.focused          $bg-color           $border-color      $text-color          $indicator-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-color
@@ -221,39 +208,46 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 #esc caps swap
 bindsym $mod+shift+a exec setxkbmap -option caps:swapescape
 
+bindsym $mod+shift+m exec ~/scripts/display_dmenu.sh
 
-
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
-    mode hide
+    mode dock
     hidden_state hide
     modifier $mod
-    font pango:DejaVu Sans Mono 15
+    font pango:DejaVu Sans Mono Bold 11
+    workspace_buttons yes
     separator_symbol "|"
 
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	status_command i3status
 	colors {
-		background $bg-color
-		separator "#757575"
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+		background $bar-bg-color
+		separator "#FFFFFF"
+		#                    border                background           text
+		focused_workspace    $bar-bg-color         $bar-bg-color        $text-color
+		inactive_workspace   $inactive-bg-color    $inactive-bg-color   $inactive-text-color
+		urgent_workspace     $inactive-bg-color    $inactive-bg-color   #ff0000
 	}
-	position bottom
+	position top
 }
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Lock computer
-bindsym $mod+shift+z exec i3lock -ef -i ~/pictures/wallpapers/png/2leopards.png
-bindsym $mod+shift+x exec i3lock -ef -i ~/pictures/wallpapers/png/2leopards.png && systemctl suspend
+# bindsym $mod+shift+z exec i3lock -ef -i ~/pictures/wallpapers/png/steps.png
+bindsym $mod+shift+z --release exec i3lock-fancy 
+bindsym $mod+shift+x exec ~/scripts/lock_dmenu.sh
+# bindsym $mod+shift+x exec sleep 4 && systemctl suspend
+# bindsym $mod+shift+x exec i3lock -ef -i ~/pictures/wallpapers/png/2leopards.png && systemctl suspend
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Bluetooth controls
+bindsym $mod+Shift+b exec ~/scripts/bluetooth_connect.sh
 
 # Convenient audio controls
 # bindsym F3 exec --no-startup-id amixer -D pulse sset Master 5%+
@@ -261,8 +255,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # bindsym F4 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -273,10 +269,29 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-scale /home/jack/pictures/wallpapers/intel.jpg
-exec_always compton
-# exec_always blueman-applet
+#borders
+bindsym $mod+shift+n exec ~/scripts/border.sh
+
+# commandline dmenu
+bindsym $mod+semicolon exec ~/scripts/commandline.sh
+
+# autoscript
+bindsym $mod+Shift+s exec ~/scripts/autoscript.sh
+
+# time
+bindsym $mod+Shift+t exec ~/scripts/time.sh
+#
+# text-editor
+bindsym $mod+Shift+o exec ~/scripts/text_editor.sh
+
+bindsym $mod+b exec ~/scripts/battery_low.sh
+
+exec_always feh --bg-scale /home/jack/pictures/wallpapers/among-trees1.jpg
 exec_always xrdb ~/.Xresources
-# exec_always xinput set-prop 12 280 1
+exec_always ~/scripts/touchpad.sh
+exec_always ./.screenlayout/screenlayout2.sh
+exec_always ./scripts/battery_low.sh
 exec_always setxkbmap -option caps:swapescape
-# exec_always ./.screenlayout/monitor_only.sh
+exec_always dunst
+exec_always compton
+
